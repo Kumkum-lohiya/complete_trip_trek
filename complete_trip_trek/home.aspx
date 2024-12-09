@@ -67,21 +67,25 @@
 
         /* Budget Input Section Styles */
         .budget-input-container {
-            margin: 50px auto;
-            max-width: 600px;
-            background: #1e1e2f;
-            color: #ffffff;
+            position: absolute; /* Position it over the image */
+            top: 60%; /* Adjust the vertical position */
+            right: 5%; /* Align it to the right side */
+            transform: translateX(0); /* Remove centering transform */
+            margin: 30px;
+            max-width: 400px; /* Adjust the max width */
+            background: rgba(240, 244, 248, 0.9); /* Light background with slight transparency */
+            color: #333; /* Darker text for contrast */
             padding: 20px;
             border-radius: 15px;
             text-align: center;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             animation: fadeIn 1.5s ease-in-out;
         }
 
         .budget-input-container h1 {
             font-size: 2rem;
             margin-bottom: 10px;
-            color: #e9a1ff;
+            color: #6a11cb; /* Light purple color */
         }
 
         .budget-input-container input {
@@ -95,8 +99,8 @@
         }
 
         .budget-input-container input:focus {
-            border-color: #a66cff;
-            box-shadow: 0 0 10px #a66cff;
+            border-color: #2575fc; /* Lighter blue for focus */
+            box-shadow: 0 0 10px #2575fc;
         }
 
         .budget-input-container button {
@@ -148,10 +152,10 @@
         </div>
     </asp:Panel>
 
-    <!-- Budget Input Section -->
+    <!-- Budget Input Section (Overlayed on the slideshow, aligned right) -->
     <div class="budget-input-container">
         <h1>Enter Your Trip Budget</h1>
-        <asp:TextBox ID="BudgetInput" runat="server" placeholder="Enter your budget" OnTextChanged="BudgetInput_TextChanged"></asp:TextBox>
+        <asp:TextBox ID="BudgetInput" runat="server" placeholder="Enter your budget"></asp:TextBox>
         <asp:Button ID="SubmitBudget" runat="server" Text="Submit Budget" OnClick="SubmitBudget_Click" />
     </div>
 

@@ -16,7 +16,7 @@ namespace complete_trip_trek
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("landing_input_page.aspx");
         }
         protected void SubmitBudget_Click(object sender, EventArgs e)
         {
@@ -32,7 +32,7 @@ namespace complete_trip_trek
 
         protected void BudgetInput_TextChanged(object sender, EventArgs e)
         {
-
+            Response.Redirect("landing_input_page.aspx");
         }
     }
 }

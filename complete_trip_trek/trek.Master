@@ -9,20 +9,12 @@
     <style type="text/css">
         /* Preserving original auto-styles */
         .auto-style1 { width: 100%; }
-        .auto-style2 { text-align: center; height: 154px; width: 138px; }
-        .auto-style3 { text-align: center; width: 149px; height: 154px; }
-        .auto-style4 { width: 149px; }
-        .auto-style5 { text-align: center; width: 129px; height: 154px; }
-        .auto-style6 { width: 129px; }
-        .auto-style7 { width: 405px; height: 154px; }
-        .auto-style8 { text-align: center; width: 117px; height: 154px; }
-        .auto-style9 { text-align: center; width: 112px; height: 154px; }
-        .auto-style10 { width: 112px; }
-        .auto-style13 { text-align: center; width: 148px; height: 154px; }
-        .auto-style14 { width: 148px; }
+        .auto-style5 { text-align: center; width: 111px; 
+height: 154px; }
+        .auto-style13 { text-align: center; width: 114px; 
+height: 154px; }
         .auto-style15 { text-align: center; width: 217px; height: 154px; }
-        .auto-style16 { width: 217px; }
-
+        
         /* New Navigation Styles */
         #Panel1 {
             position: fixed;
@@ -164,11 +156,6 @@
                 height: auto;
             }
 
-            .auto-style7 {
-                width: 100%;
-                text-align: center;
-            }
-
             .search-box.active {
                 width: 200px;
             }
@@ -183,6 +170,26 @@
                 padding: 8px 15px;
             }
         }
+        .auto-style17 {
+            width: 288px;
+            height: 154px;
+            text-align: center;
+        }
+        .auto-style18 {
+            text-align: center;
+            width: 106px;
+            height: 154px;
+        }
+        .auto-style21 {
+            text-align: center;
+            width: 63px;
+            height: 154px;
+        }
+        .auto-style22 {
+            text-align: center;
+            width: 55px;
+            height: 154px;
+        }
     </style>
 </head>
 <body>
@@ -191,23 +198,23 @@
             <asp:Panel ID="Panel1" runat="server">
                 <table class="auto-style1 nav-table">
                     <tr>
-                        <td class="auto-style7">
+                        <td class="auto-style17">
                             <asp:Image ID="Image1" runat="server" Height="150px" ImageUrl="~/logo.jpg" />
                         </td>
-                        <td class="auto-style8">
+                        <td class="auto-style21">
                             <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/home.aspx">Home</asp:HyperLink>
                         </td>
-                        <td class="auto-style9">
+                        <td class="auto-style22">
                             <asp:HyperLink ID="HyperLink2" runat="server">About</asp:HyperLink>
                         </td>
                         <td class="auto-style13">
                             <asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/Login.aspx">Login/Sign Up</asp:HyperLink>
                         </td>
-                        <td class="auto-style3">
+                        <td class="auto-style18">
                             <asp:HyperLink ID="HyperLink4" runat="server" NavigateUrl="~/contactus.aspx">Contact Us</asp:HyperLink>
                         </td>
                         <td class="auto-style5">
-                            <asp:HyperLink ID="HyperLink5" runat="server">My Profile</asp:HyperLink>
+                            <asp:HyperLink ID="HyperLink5" runat="server" NavigateUrl="~/myprofile.aspx">My Profile</asp:HyperLink>
                         </td>
                         <td class="auto-style15">
                             <div class="search-container">
