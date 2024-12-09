@@ -1,0 +1,276 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="trek.master.cs" Inherits="complete_trip_trek.trek" %>
+<!DOCTYPE html>
+<html>
+<head runat="server">
+    <title></title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        /* Preserving original auto-styles */
+        .auto-style1 { width: 100%; }
+        .auto-style2 { text-align: center; height: 154px; width: 138px; }
+        .auto-style3 { text-align: center; width: 149px; height: 154px; }
+        .auto-style4 { width: 149px; }
+        .auto-style5 { text-align: center; width: 129px; height: 154px; }
+        .auto-style6 { width: 129px; }
+        .auto-style7 { width: 405px; height: 154px; }
+        .auto-style8 { text-align: center; width: 117px; height: 154px; }
+        .auto-style9 { text-align: center; width: 112px; height: 154px; }
+        .auto-style10 { width: 112px; }
+        .auto-style13 { text-align: center; width: 148px; height: 154px; }
+        .auto-style14 { width: 148px; }
+        .auto-style15 { text-align: center; width: 217px; height: 154px; }
+        .auto-style16 { width: 217px; }
+
+        /* New Navigation Styles */
+        #Panel1 {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: #ffffff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .nav-table {
+            padding: 10px 0;
+        }
+
+        /* Enhanced font styles for hyperlinks */
+        #Panel1 a {
+            text-decoration: none;
+            color: #333;
+            font-family: 'Arial', sans-serif; /* Or any other attractive font like 'Open Sans' */
+            font-weight: 700; /* Bold font */
+            font-size: 18px; /* Larger font size */
+            padding: 10px 20px;
+            transition: all 0.3s ease;
+            letter-spacing: 1px;
+            text-transform: uppercase; /* Makes the text uppercase */
+            position: relative;
+        }
+
+        /* Hover effects */
+        #Panel1 a:hover {
+            color: #007bff;
+        }
+
+        /* Underline effect on hover */
+        #Panel1 a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #007bff;
+            transition: width 0.3s ease;
+        }
+
+        #Panel1 a:hover::after {
+            width: 100%;
+        }
+
+        /* Fixed Search Box Styles */
+        .search-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 40px;
+        }
+
+        .search-box {
+            position: relative;
+            width: 40px;
+            height: 40px;
+            transition: width 0.4s ease-in-out;
+            overflow: visible;
+        }
+
+        .search-box.active {
+            width: 250px;
+        }
+
+        .search-box input {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            border: 2px solid #007bff;
+            border-radius: 20px;
+            padding: 0 15px 0 40px;
+            outline: none;
+            font-size: 16px;
+            background: #ffffff;
+            color: #333;
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .search-box.active input {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .search-btn {
+            position: absolute;
+            top: 50%;
+            left: 5px;
+            transform: translateY(-50%);
+            width: 30px;
+            height: 30px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .search-btn i {
+            color: #007bff;
+            font-size: 18px;
+        }
+
+        .search-box:not(.active) .search-btn {
+            background: #007bff;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            left: 0;
+        }
+
+        .search-box:not(.active) .search-btn i {
+            color: #ffffff;
+        }
+
+        @media (max-width: 768px) {
+            .nav-table td {
+                display: block;
+                width: 100%;
+                text-align: center;
+                padding: 8px 0;
+            }
+
+            #Panel1 {
+                height: auto;
+            }
+
+            .auto-style7 {
+                width: 100%;
+                text-align: center;
+            }
+
+            .search-box.active {
+                width: 200px;
+            }
+
+            .search-container {
+                justify-content: center;
+                margin: 10px 0;
+            }
+
+            #Panel1 a {
+                font-size: 16px; /* Slightly smaller for mobile */
+                padding: 8px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <asp:Panel ID="Panel1" runat="server">
+                <table class="auto-style1 nav-table">
+                    <tr>
+                        <td class="auto-style7">
+                            <asp:Image ID="Image1" runat="server" Height="150px" ImageUrl="~/logo.jpg" />
+                        </td>
+                        <td class="auto-style8">
+                            <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/home.aspx">Home</asp:HyperLink>
+                        </td>
+                        <td class="auto-style9">
+                            <asp:HyperLink ID="HyperLink2" runat="server">About</asp:HyperLink>
+                        </td>
+                        <td class="auto-style13">
+                            <asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/Login.aspx">Login/Sign Up</asp:HyperLink>
+                        </td>
+                        <td class="auto-style3">
+                            <asp:HyperLink ID="HyperLink4" runat="server" NavigateUrl="~/contactus.aspx">Contact Us</asp:HyperLink>
+                        </td>
+                        <td class="auto-style5">
+                            <asp:HyperLink ID="HyperLink5" runat="server">My Profile</asp:HyperLink>
+                        </td>
+                        <td class="auto-style15">
+                            <div class="search-container">
+                                <div class="search-box">
+                                    <button type="button" class="search-btn">
+                                        <i class="fas fa-search"></i>
+                                    </button>
+                                    <input type="text" placeholder="Search..." />
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </asp:Panel>
+        </div>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+    </form>
+
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function () {
+            const searchBox = document.querySelector('.search-box');
+            const searchBtn = document.querySelector('.search-btn');
+            const searchInput = document.querySelector('.search-box input');
+
+            searchBtn.addEventListener('click', function (e) {
+                e.stopPropagation();
+                searchBox.classList.toggle('active');
+                if (searchBox.classList.contains('active')) {
+                    searchInput.focus();
+                }
+            });
+
+            searchInput.addEventListener('click', function (e) {
+                e.stopPropagation();
+            });
+
+            document.addEventListener('click', function (e) {
+                if (!searchBox.contains(e.target)) {
+                    searchBox.classList.remove('active');
+                }
+            });
+        });
+
+        // Scroll effect
+        let lastScroll = 0;
+        window.addEventListener('scroll', function () {
+            const panel = document.getElementById('<%= Panel1.ClientID %>');
+            const currentScroll = window.pageYOffset;
+
+            if (currentScroll <= 0) {
+                panel.style.transform = 'translateY(0)';
+                return;
+            }
+
+            if (currentScroll > lastScroll && currentScroll > 50) {
+                panel.style.transform = 'translateY(-100%)';
+            } else {
+                panel.style.transform = 'translateY(0)';
+            }
+
+            lastScroll = currentScroll;
+        });
+    </script>
+</body>
+</html>
